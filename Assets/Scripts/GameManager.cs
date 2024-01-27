@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         level = 0;
         numberGenerateGoats = 10;
-        CheckUI();
+        goatstextUI.text = "Cabras: " + numberGenerateGoats;
         Invoke("CreateGoat", 1);
     }
 
@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckUI()
     {
+        numberGenerateGoats = GameObject.FindGameObjectsWithTag("Goat").Length;
         goatstextUI.text = "Cabras: " + numberGenerateGoats;
     }
 

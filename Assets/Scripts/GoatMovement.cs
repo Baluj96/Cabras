@@ -6,10 +6,14 @@ using UnityEngine.AI;
 public class GoatMovement : MonoBehaviour
 {
     public float health = 1;
+    float speed = 6;
+    float waitTime = 0.1f;
     public bool player;
+    bool able;
 
-    void Update()
+    void Start()
     {
+        able = true;
     }
 
     private void FixedUpdate()
@@ -31,10 +35,26 @@ public class GoatMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("Obstacle"))
         {
-            Invoke("Damage", 2);
-            while (true)
+            Invoke("Damage", 1);
+        }
+    }
+
+    IEnumerator RotateGoat()
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
+
+        while (able)
+        {
+            yield return new WaitForSeconds(waitTime);
+            transform.rotation = Quaternion.Euler(Vector3.right * speed * Time.deltaTime);
+            float aux = transform.GetChild(0).GetComponent<SpriteRenderer>().color.a - 0.05f;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, aux);
+
+            if (transform.rotation.x >= 1800 || transform.GetChild(0).GetComponent<SpriteRenderer>().color.a == 0)
             {
-                this.transform.rotation = Quaternion.Euler(Vector3.right);
+                able = false;
+                Destroy(gameObject);
             }
         }
     }
@@ -44,11 +64,11 @@ public class GoatMovement : MonoBehaviour
         health--;
         if (health <= 0)
         {
-            GameManager.instance.numGenerateGoats--;
-
+            transform.tag = "Sun";
             GameManager.instance.CheckUI();
             GameManager.instance.ToGameOver();
-            Destroy(gameObject, 0.2f);
+
+            StartCoroutine(RotateGoat());
         }
     }
 }
