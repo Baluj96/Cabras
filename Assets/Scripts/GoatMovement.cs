@@ -35,9 +35,7 @@ public class GoatMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("Obstacle"))
         {
-            Invoke("Damage", 2);
-            
-            
+            Invoke("Damage", 1);
         }
     }
 
@@ -66,8 +64,7 @@ public class GoatMovement : MonoBehaviour
         health--;
         if (health <= 0)
         {
-            GameManager.instance.numGenerateGoats--;
-
+            transform.tag = "Sun";
             GameManager.instance.CheckUI();
             GameManager.instance.ToGameOver();
 
