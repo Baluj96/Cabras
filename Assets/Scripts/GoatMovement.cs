@@ -27,6 +27,11 @@ public class GoatMovement : MonoBehaviour
         GetComponent<NavMeshAgent>().SetDestination(target.transform.position);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
     public void Damage()
     {
         health--;

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    [SerializeField] bool trunk;
-    [SerializeField] bool hole;
     [SerializeField] float range;
-    public Sprite tap;
 
     GameObject player;
     float dis;
     float waitTime = 0.1f;
-
 
     void Start()
     {
@@ -27,16 +23,7 @@ public class Obstacle : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (hole)
-                {
-                    GetComponent<SpriteRenderer>().sprite = tap;
-                    GetComponent<BoxCollider2D>().enabled = false;
-                }
-
-                if (trunk)
-                {
-                    StartCoroutine(DestroyTrunk());
-                }
+                StartCoroutine(DestroyTrunk());
             }
         }
     }

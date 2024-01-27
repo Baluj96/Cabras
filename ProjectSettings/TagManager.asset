@@ -7,6 +7,7 @@ TagManager:
   - Spawner
   - Goat
   - Goal
+  - Obstacle
   layers:
   - Default
   - TransparentFX
