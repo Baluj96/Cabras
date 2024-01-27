@@ -8,7 +8,8 @@ public class WayManager : MonoBehaviour
 
     public float waitTime = 0.1f;
     public float dificultad = 0.1f;
-    public GameObject[] wayPrefabs;
+    public GameObject[] wayPrefabs, Obstacles;
+    public Transform ground;
     GameObject sun, goal, player;
 
     private void Awake()
@@ -18,9 +19,6 @@ public class WayManager : MonoBehaviour
 
     public void StartGame()
     {
-        sun = GameObject.FindGameObjectWithTag("Sun");
-        StartCoroutine(GiroLuz());
-
         goal = GameObject.FindGameObjectWithTag("Goal");
         player = GameObject.FindGameObjectWithTag("Player");
         goal.transform.position = new Vector3(90 / dificultad, 0, 0);
@@ -28,17 +26,31 @@ public class WayManager : MonoBehaviour
         for (int i = -15; i < d; i += 10)
         {
             int r = Random.Range(0, wayPrefabs.Length);
-            Instantiate(wayPrefabs[r], new Vector3(0, 0, i), Quaternion.Euler(90, 0, 0));
+            Instantiate(wayPrefabs[r], new Vector3(0, 0, i), Quaternion.Euler(90, 0, 0), ground);
+            int o = Random.Range(1,4);
+            for (int j = 0; j < o; j++)
+            {
+                float px = Random.Range(- 5f, 5f), py = Random.Range(-5f, 5f);
+                int index = Random.Range(0, Obstacles.Length);
+                Instantiate(Obstacles[index], new Vector3(i + px, 0, i), Quaternion.Euler(0, 0, 0), ground);
+            }
         }
+
+        sun = GameObject.FindGameObjectWithTag("Sun");
+        //StartCoroutine(GiroLuz());
     }
 
-    IEnumerator GiroLuz()
+    /*IEnumerator GiroLuz()
     {
-        while (sun.transform.rotation.x <= 90)
+        while (sun.transform.rotation.x < 90)
         {
-            sun.transform.rotation = Quaternion.Euler(Vector3.right * dificultad);
+            sun.transform.rotation = Quaternion.Euler(Vector3.right * dificultad * Time.deltaTime);
             yield return new WaitForSeconds(waitTime);
         }
-        GameManager.instance.GameOver();
-    }
+
+        if (sun.transform.rotation.x >= 90)
+        {
+            GameManager.instance.GameOver();
+        }
+    }*/
 }

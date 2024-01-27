@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 3
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.2
     agentHeight: 2
     agentSlope: 45
     agentClimb: 1
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.06666667
     manualTileSize: 0
     tileSize: 256
     buildHeightMesh: 0
@@ -307,8 +307,8 @@ Transform:
   m_GameObject: {fileID: 543472393}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 5}
+  m_LocalPosition: {x: 0, y: -0.5, z: 450}
+  m_LocalScale: {x: 2, y: 1, z: 95}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1646,6 +1646,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746869451}
   m_CullTransparentMesh: 1
+--- !u!1 &1756277743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1756277744}
+  m_Layer: 0
+  m_Name: box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1756277744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756277743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.081598, y: 0.69999856, z: 12.344066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1774511725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,7 +1827,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -6, z: 8}
-  m_LocalScale: {x: 15, y: 1, z: 10}
+  m_LocalScale: {x: 20, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1568980291}
@@ -1908,6 +1939,12 @@ MonoBehaviour:
   - {fileID: 2489529996852006340, guid: c94d4a8025fdfe24aaa226a449cf2c98, type: 3}
   - {fileID: 6812300694724184919, guid: 582c3c4ffa0217644b60224771a7518d, type: 3}
   - {fileID: 3784221109393275057, guid: 64cef33f9431dcd47bc3c5ed0f2ae6b5, type: 3}
+  Obstacles:
+  - {fileID: 3269509290860996057, guid: 249e3794a9b91534785a142218709dba, type: 3}
+  - {fileID: 6792895474792647911, guid: 368891873d2b5814184aa7731919f56b, type: 3}
+  - {fileID: 6792895474792647911, guid: 368891873d2b5814184aa7731919f56b, type: 3}
+  - {fileID: 3401729534968466232, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
+  ground: {fileID: 1756277744}
 --- !u!4 &2042419262
 Transform:
   m_ObjectHideFlags: 0
@@ -1938,3 +1975,4 @@ SceneRoots:
   - {fileID: 2042419262}
   - {fileID: 611250096}
   - {fileID: 543472397}
+  - {fileID: 1756277744}
