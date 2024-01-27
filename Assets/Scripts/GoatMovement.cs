@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class GoatMovement : MonoBehaviour
 {
-    public float health = 1, speed = 3;
+    public float health = 1;
+    float speed = 6;
     float waitTime = 0.1f;
     public bool player;
     bool able;
@@ -49,7 +50,7 @@ public class GoatMovement : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
             transform.rotation = Quaternion.Euler(Vector3.right * speed * Time.deltaTime);
-            float aux = transform.GetChild(0).GetComponent<SpriteRenderer>().color.a - 0.1f;
+            float aux = transform.GetChild(0).GetComponent<SpriteRenderer>().color.a - 0.05f;
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, aux);
 
             if (transform.rotation.x >= 1800 || transform.GetChild(0).GetComponent<SpriteRenderer>().color.a == 0)
