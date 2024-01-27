@@ -71,8 +71,6 @@ public class GameManager : MonoBehaviour
         goatstextUI.enabled = true;
         level++;
         numberGenerateGoats = 10 + 2 * level + Mathf.RoundToInt(level * level * 0.5f);
-
-        CheckUI();
         DesactivePanels();
         //Genera los enemigos
         //Debug.Log("A generar enemigos");
@@ -104,7 +102,7 @@ public class GameManager : MonoBehaviour
         {
             int n = Random.Range(0, goatPrefabs.Length);
             GameObject g = Instantiate(goatPrefabs[n], spawnGoat.transform.position, spawnGoat.transform.rotation, gameObject.transform);
-            
+
             int r = Random.Range(0, 2);
             if (r == 0)
             {
@@ -118,6 +116,7 @@ public class GameManager : MonoBehaviour
             numGenerateGoats--;
             yield return new WaitForSeconds(waitTime);
         }
+        CheckUI();
     }
 
     public void Victory()

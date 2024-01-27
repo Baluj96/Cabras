@@ -12,6 +12,11 @@ public class Goal : MonoBehaviour
             other.GetComponent<PlayerMovement>().enabled = false;
             DestroyGoats();
         }
+        if (other.CompareTag("Goat"))
+        {
+            other.tag = "MainGoat";
+            GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>().Win();
+        }
     }
 
      void DestroyGoats()
