@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI goatstextUI;
     [SerializeField] GameObject[] goatPrefabs;
     int numberGenerateGoats;
+    int numGenerateGoats;
     float waitTime = 0.5f;
 
     [Header("UI GameOver")]
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckUI()
     {
+        //TODO
         numberGenerateGoats = GameObject.FindGameObjectsWithTag("Goat").Length;
         goatstextUI.text = "Cabras: " + numberGenerateGoats;
     }
@@ -97,7 +99,8 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator CreateGoats()
     {
-        while (numberGenerateGoats > 0)
+        numGenerateGoats = numberGenerateGoats;
+        while (numGenerateGoats > 0)
         {
             int n = Random.Range(0, goatPrefabs.Length);
             GameObject g = Instantiate(goatPrefabs[n], spawnGoat.transform.position, spawnGoat.transform.rotation, gameObject.transform);
@@ -112,7 +115,7 @@ public class GameManager : MonoBehaviour
                 g.GetComponent<GoatMovement>().player = false;
             }
 
-            numberGenerateGoats--;
+            numGenerateGoats--;
             yield return new WaitForSeconds(waitTime);
         }
     }
