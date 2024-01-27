@@ -15,6 +15,7 @@ public class Hole : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        ani = GetComponent<Animator>();
     }
 
     void Update()
@@ -25,8 +26,9 @@ public class Hole : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                GetComponent<SpriteRenderer>().sprite = tap;
+                ani.SetTrigger("Tap");
                 GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().sprite = tap;
             }
         }
     }
