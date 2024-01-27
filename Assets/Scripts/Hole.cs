@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
-    [SerializeField] bool hole;
     [SerializeField] float range;
     public Sprite tap;
+    public GameObject Agujero;
 
     GameObject player;
     float dis;
@@ -15,7 +15,6 @@ public class Hole : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        ani = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,9 +25,9 @@ public class Hole : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                ani.SetTrigger("Tap");
-                GetComponent<BoxCollider2D>().enabled = false;
+                Debug.Log("Presiona e");
                 GetComponent<SpriteRenderer>().sprite = tap;
+                GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }
