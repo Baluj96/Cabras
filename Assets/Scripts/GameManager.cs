@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI goatstextUI;
     [SerializeField] GameObject[] goatPrefabs;
     int numberGenerateGoats;
-    public int numGenerateGoats;
     float waitTime = 0.5f;
 
     [Header("UI GameOver")]
@@ -128,7 +127,7 @@ public class GameManager : MonoBehaviour
     public void ToGameOver()
     {
         //Debug.Log("�han muerto todas las cabras?");
-        if (numGenerateGoats <= 0)
+        if (numberGenerateGoats <= 0)
         {
             Invoke("GameOver", 1);
         }
