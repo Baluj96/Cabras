@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
 
         WayManager.instance.StartGame();
 
-        Level0();
+        Invoke("Level0", 1);
+        //Level0();
     }
 
     void DesactivePanels()
