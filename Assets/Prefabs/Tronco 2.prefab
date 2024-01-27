@@ -203,7 +203,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f528e76d752c624881e491f00af32ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trunk: 1
-  hole: 0
-  range: 1
-  tap: {fileID: -3638342126592898784, guid: 83729adc2f988b84fbf8e8a01c8c12d9, type: 3}
+  range: 2
