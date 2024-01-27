@@ -9,15 +9,18 @@ public class Obstacle : MonoBehaviour
     GameObject player;
     float dis;
     float waitTime = 0.1f;
+    bool able;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        able = true;
     }
 
     void Update()
     {
         dis = Vector3.Distance(player.transform.position, transform.position);
+        //Debug.Log(dis);
 
         if (dis < range)
         {
@@ -30,19 +33,21 @@ public class Obstacle : MonoBehaviour
 
     IEnumerator DestroyTrunk()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
-        /*while (true)
+        Debug.Log("Desaparece");
+        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
+
+        while (able)
         {
             yield return new WaitForSeconds(waitTime);
-            float aux = GetComponent<SpriteRenderer>().color.a - 0.1f;
-            GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, aux);
+            float aux = transform.GetChild(0).GetComponent<SpriteRenderer>().color.a - 0.3f;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, aux);
 
-            if (GetComponent<SpriteRenderer>().color.a == 0)
+            if (transform.GetChild(0).GetComponent<SpriteRenderer>().color.a <= 0)
             {
+                able = false;
                 Destroy(gameObject);
             }
-        }*/
-        Destroy(gameObject);
-        yield return null;
+        }
     }
 }
