@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     [Header("Game Manager")]
     public static GameManager instance;
 
-
     [Header("Enemy Manager")]
     GameObject spawnGoat;
     public int level;
@@ -34,6 +33,8 @@ public class GameManager : MonoBehaviour
         DesactivePanels();
 
         spawnGoat = GameObject.FindGameObjectWithTag("Spawner");
+
+        WayManager.instance.StartGame();
 
         Level0();
     }
