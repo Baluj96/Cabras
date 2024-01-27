@@ -21,7 +21,7 @@ public class WayManager : MonoBehaviour
     {
         goal = GameObject.FindGameObjectWithTag("Goal");
         player = GameObject.FindGameObjectWithTag("Player");
-        goal.transform.position = new Vector3(90 / dificultad, 0, 0);
+        goal.transform.position = new Vector3(0, 0, 90 / dificultad);
         int d = Mathf.RoundToInt(Vector3.Distance(player.transform.position, goal.transform.position));
         for (int i = -15; i < d; i += 10)
         {
@@ -30,13 +30,13 @@ public class WayManager : MonoBehaviour
             int o = Random.Range(1,4);
             for (int j = 0; j < o; j++)
             {
-                float px = Random.Range(- 5f, 5f), py = Random.Range(-5f, 5f);
+                float px = Random.Range(- 3f, 3f), py = Random.Range(-5f, 5f);
                 int index = Random.Range(0, Obstacles.Length);
                 Instantiate(Obstacles[index], new Vector3(i + px, 0, i), Quaternion.Euler(0, 0, 0), ground);
             }
         }
 
-        sun = GameObject.FindGameObjectWithTag("Sun");
+        //sun = GameObject.FindGameObjectWithTag("Sun");
         //StartCoroutine(GiroLuz());
     }
 
