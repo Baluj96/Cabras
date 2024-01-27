@@ -31,7 +31,7 @@ public class WayManager : MonoBehaviour
 
             if (i >= 15)
             {
-                int o = Random.Range(1, 4);
+                int o = Random.Range(1, 3);
                 for (int j = 0; j < o; j++)
                 {
                     float px = Random.Range(-3f, 3f), py = Random.Range(-5f, 5f);

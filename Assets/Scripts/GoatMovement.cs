@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class GoatMovement : MonoBehaviour
 {
     public float health = 1;
-    float speed = 6;
+    float speed = 20;
     float waitTime = 0.1f;
     public bool player;
     bool able;
@@ -64,7 +64,7 @@ public class GoatMovement : MonoBehaviour
         health--;
         if (health <= 0)
         {
-            transform.tag = "Sun";
+            transform.tag = "Death";
             GameManager.instance.CheckUI();
             GameManager.instance.ToGameOver();
 

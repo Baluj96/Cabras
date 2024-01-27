@@ -32,6 +32,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, go.transform.position + offset, ref dampVelcity, smoothTargetTime);
         Invoke("Next", 2);
     }
+    
     void Next()
     {
         able = true;

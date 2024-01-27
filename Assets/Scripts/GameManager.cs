@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+        WayManager.instance.StartGame();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(0, 0.5f, 0);
         player.GetComponent<PlayerMovement>().enabled = true;
@@ -71,6 +72,15 @@ public class GameManager : MonoBehaviour
         goatstextUI.enabled = true;
         level++;
         numberGenerateGoats = 10 + 2 * level + Mathf.RoundToInt(level * level * 0.5f);
+
+        Destroy(GameObject.FindGameObjectWithTag("MainGoat"));
+        GameObject[] goats = GameObject.FindGameObjectsWithTag("Goat");
+        
+        foreach (GameObject goat in goats)
+        {
+            Destroy(goat);
+        }
+
         DesactivePanels();
         //Genera los enemigos
         //Debug.Log("A generar enemigos");
@@ -117,6 +127,11 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
         CheckUI();
+    }
+
+    public void ToVictory()
+    {
+        Invoke("Victory", 1);
     }
 
     public void Victory()

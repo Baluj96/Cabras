@@ -8,13 +8,16 @@ public class Goal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.Victory();
-            other.GetComponent<PlayerMovement>().enabled = false;
             DestroyGoats();
+            other.GetComponent<Rigidbody>().velocity = new Vector2(0, 0);
+            GameManager.instance.ToVictory();
+            other.GetComponent<PlayerMovement>().enabled = false;
         }
         if (other.CompareTag("Goat"))
         {
             other.tag = "MainGoat";
+            DestroyGoats();
+            other.GetComponent<Rigidbody>().velocity = new Vector2(0, 0);
             GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>().Win();
         }
     }

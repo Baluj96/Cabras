@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - Obstacle
   - Sun
+  - MainGoat
   layers:
   - Default
   - TransparentFX

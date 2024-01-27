@@ -33,7 +33,6 @@ public class Obstacle : MonoBehaviour
 
     IEnumerator DestroyTrunk()
     {
-        Debug.Log("Desaparece");
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<MeshRenderer>().enabled = false;
 
