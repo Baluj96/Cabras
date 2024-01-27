@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 819744479}
   m_Layer: 0
   m_Name: Goal
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2040,63 +2040,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038695827}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &4280639716791796570
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0696
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1268
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3259115086165402121, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3401729534968466232, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
-      propertyPath: m_Name
-      value: Tronco 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 99d2bb82245ba4b4ca6f9ccabe4fe01e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2110,4 +2053,3 @@ SceneRoots:
   - {fileID: 543472397}
   - {fileID: 1568887043}
   - {fileID: 819744483}
-  - {fileID: 4280639716791796570}

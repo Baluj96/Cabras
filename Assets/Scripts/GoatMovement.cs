@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class GoatMovement : MonoBehaviour
 {
     public float health = 1;
+    public bool player;
 
     void Update()
     {
@@ -13,7 +14,17 @@ public class GoatMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GetComponent<NavMeshAgent>().SetDestination(GameObject.FindGameObjectWithTag("Player").transform.position);
+        GameObject target;
+        if (player)
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+        else
+        {
+            target = GameObject.FindGameObjectWithTag("Goal");
+        }
+
+        GetComponent<NavMeshAgent>().SetDestination(target.transform.position);
     }
 
     public void Damage()

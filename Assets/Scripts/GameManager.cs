@@ -98,7 +98,18 @@ public class GameManager : MonoBehaviour
         while (numberGenerateGoats > 0)
         {
             int n = Random.Range(0, goatPrefabs.Length);
-            Instantiate(goatPrefabs[n], spawnGoat.transform.position, spawnGoat.transform.rotation, gameObject.transform);
+            GameObject g = Instantiate(goatPrefabs[n], spawnGoat.transform.position, spawnGoat.transform.rotation, gameObject.transform);
+            
+            int r = Random.Range(0, 2);
+            if (r == 0)
+            {
+                g.GetComponent<GoatMovement>().player = true;
+            }
+            else
+            {
+                g.GetComponent<GoatMovement>().player = false;
+            }
+
             numberGenerateGoats--;
             yield return new WaitForSeconds(waitTime);
         }
