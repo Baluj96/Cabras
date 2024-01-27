@@ -31,7 +31,11 @@ public class GoatMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("Obstacle"))
         {
-            Damage();
+            Invoke("Damage", 2);
+            while (true)
+            {
+                this.transform.rotation = Quaternion.Euler(Vector3.right);
+            }
         }
     }
 
