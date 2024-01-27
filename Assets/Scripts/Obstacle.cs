@@ -31,7 +31,7 @@ public class Obstacle : MonoBehaviour
     IEnumerator DestroyTrunk()
     {
         GetComponent<BoxCollider2D>().enabled = false;
-        while (true)
+        /*while (true)
         {
             yield return new WaitForSeconds(waitTime);
             float aux = GetComponent<SpriteRenderer>().color.a - 0.1f;
@@ -41,6 +41,8 @@ public class Obstacle : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }
+        }*/
+        Destroy(gameObject);
+        yield return null;
     }
 }

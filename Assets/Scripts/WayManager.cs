@@ -19,6 +19,7 @@ public class WayManager : MonoBehaviour
 
     public void StartGame()
     {
+        int contador = 0;
         goal = GameObject.FindGameObjectWithTag("Goal");
         player = GameObject.FindGameObjectWithTag("Player");
         goal.transform.position = new Vector3(0, 0, 90 / dificultad);
@@ -27,12 +28,19 @@ public class WayManager : MonoBehaviour
         {
             int r = Random.Range(0, wayPrefabs.Length);
             Instantiate(wayPrefabs[r], new Vector3(0, 0, i), Quaternion.Euler(90, 0, 0), ground);
+
             int o = Random.Range(1,4);
             for (int j = 0; j < o; j++)
             {
                 float px = Random.Range(- 3f, 3f), py = Random.Range(-5f, 5f);
                 int index = Random.Range(0, Obstacles.Length);
-                Instantiate(Obstacles[index], new Vector3(i + px, 0, i), Quaternion.Euler(0, 0, 0), ground);
+                contador = contador + 1;
+                Debug.Log("Contador: " + contador);
+
+                // Instantiate(Obstacles[index], new Vector3(px, 0, i + py), Quaternion.identity, ground);
+
+                //Instantiate(gameObject.transform, new Vector3(0, 0, 0), Quaternion.identity, ground);
+                Instantiate(Obstacles[1], new Vector3(px, 0, i + py), Quaternion.identity, ground);
             }
         }
 
