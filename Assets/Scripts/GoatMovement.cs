@@ -29,7 +29,10 @@ public class GoatMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.collider.CompareTag("Obstacle"))
+        {
+            Damage();
+        }
     }
 
     public void Damage()
@@ -38,7 +41,7 @@ public class GoatMovement : MonoBehaviour
         if (health <= 0)
         {
             GameManager.instance.numGenerateGoats--;
-            
+
             GameManager.instance.CheckUI();
             GameManager.instance.ToGameOver();
             Destroy(gameObject, 0.2f);
