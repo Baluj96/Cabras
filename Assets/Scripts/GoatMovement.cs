@@ -10,10 +10,24 @@ public class GoatMovement : MonoBehaviour
     float waitTime = 0.1f;
     public bool player;
     bool able;
+    AudioSource audioSource;
+    public AudioClip[] clips;
 
     void Start()
     {
         able = true;
+    
+        audioSource = GetComponent<AudioSource>();
+        Invoke("Play", 2);
+    }
+
+    void Play()
+    {
+        int r = Random.Range(0, clips.Length);
+        audioSource.clip = clips[r];
+        audioSource.Play();
+        float t = Random.Range(2f, 4f);
+        Invoke("Play", t);
     }
 
     private void FixedUpdate()

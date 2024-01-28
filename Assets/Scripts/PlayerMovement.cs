@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     
     Rigidbody rb;
     Vector3 targetVelocity, dampVelocity;
-    //Animator anim;
+    AudioSource audioSource;
+    public AudioClip[] clips;
 
     private void Awake()
     {
@@ -21,10 +22,19 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
-        //anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        Invoke("Play", 1);
     }
 
-    // Update is called once per frame
+    void Play()
+    {
+        int r = Random.Range(0, clips.Length);
+        audioSource.clip = clips[r];
+        audioSource.Play();
+        float t = Random.Range(5f, 7f);
+        Invoke("Play", t);
+    }
+
     void Update()
     {
         float h = Input.GetAxis("Horizontal");

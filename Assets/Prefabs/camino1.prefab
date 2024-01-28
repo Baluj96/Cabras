@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: camino1
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: f918e25bc00c04486a6f2e5c8886c637, type: 3}
+      propertyPath: m_TagString
+      value: Way
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: f918e25bc00c04486a6f2e5c8886c637, type: 3}
       propertyPath: m_LocalScale.x
       value: 10

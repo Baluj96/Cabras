@@ -64,7 +64,13 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        WayManager.instance.StartGame();
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        foreach (GameObject o in obstacles)
+        {
+            Destroy(o);
+        }
+
+        WayManager.instance.CreateObstacle();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(0, 0.5f, 0);
         player.GetComponent<PlayerMovement>().enabled = true;
@@ -75,7 +81,6 @@ public class GameManager : MonoBehaviour
 
         Destroy(GameObject.FindGameObjectWithTag("MainGoat"));
         GameObject[] goats = GameObject.FindGameObjectsWithTag("Goat");
-        
         foreach (GameObject goat in goats)
         {
             Destroy(goat);
@@ -84,7 +89,7 @@ public class GameManager : MonoBehaviour
         DesactivePanels();
         //Genera los enemigos
         //Debug.Log("A generar enemigos");
-        Invoke("CreateGoat", 1);
+        Invoke("CreateGoat", 0.1f);
     }
 
     public void CheckUI()
@@ -138,7 +143,7 @@ public class GameManager : MonoBehaviour
     {
         gamevictory = true;
         panelVictory.SetActive(true);
-        Invoke("NextLevel", 2);
+        Invoke("NextLevel", 3);
     }
 
     public void ToGameOver()
@@ -154,7 +159,7 @@ public class GameManager : MonoBehaviour
     {
         gameover = true;
         panelGameOver.SetActive(true);
-        Invoke("MainMenu", 2);
+        Invoke("MainMenu", 3);
     }
 
     void MainMenu()
