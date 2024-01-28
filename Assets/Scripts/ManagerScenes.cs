@@ -11,6 +11,14 @@ public class ManagerScenes : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            if (Input.anyKeyDown)
+            {
+                LoadLevel(0);
+            }
+        }
     }
 
     public void LoadLevel(int indexLevel)
