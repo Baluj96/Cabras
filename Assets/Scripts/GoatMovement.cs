@@ -18,7 +18,7 @@ public class GoatMovement : MonoBehaviour
         able = true;
     
         audioSource = GetComponent<AudioSource>();
-        Invoke("Play", 2);
+        Invoke("Play", Random.Range(2, 20));
     }
 
     void Play()
@@ -26,7 +26,7 @@ public class GoatMovement : MonoBehaviour
         int r = Random.Range(0, clips.Length);
         audioSource.clip = clips[r];
         audioSource.Play();
-        float t = Random.Range(2f, 4f);
+        float t = Random.Range(2f, 20f);
         Invoke("Play", t);
     }
 

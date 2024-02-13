@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     GameObject spawnGoat;
     public int level;
     [SerializeField] TextMeshProUGUI goatstextUI;
-    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI levelNumberText;
     [SerializeField] GameObject[] goatPrefabs;
     int numberGenerateGoats;
     int numGenerateGoats;
@@ -57,10 +57,10 @@ public class GameManager : MonoBehaviour
 
     public void Level0()
     {
-        level = 0;
+        level = 1;
         numberGenerateGoats = 10;
         goatstextUI.text = "x " + numberGenerateGoats;
-        levelText.text = "Nivel: " + level;
+        levelNumberText.text = level.ToString();
         Invoke("CreateGoat", 1);
     }
 
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         //TODO
         numberGenerateGoats = GameObject.FindGameObjectsWithTag("Goat").Length;
         goatstextUI.text = "x " + numberGenerateGoats;
-        levelText.text = "Nivel: " + level;
+        levelNumberText.text = level.ToString();
     }
 
     void CreateGoat()

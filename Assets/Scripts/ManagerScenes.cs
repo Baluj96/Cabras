@@ -11,7 +11,10 @@ public class ManagerScenes : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+    }
 
+    private void Update()
+    {
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             if (Input.anyKeyDown)

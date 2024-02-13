@@ -23,7 +23,7 @@ public class WayManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         goal.transform.position = new Vector3(0, 0, 90 / dificultad);
         int d = Mathf.RoundToInt(Vector3.Distance(player.transform.position, goal.transform.position));
-        for (int i = -15; i < d; i += 10)
+        for (int i = -15; i < d; i += 11)
         {
             int r = Random.Range(0, wayPrefabs.Length);
             Instantiate(wayPrefabs[r], new Vector3(0, 0, i), Quaternion.Euler(90, 0, 0), ground);
